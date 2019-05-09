@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Security;
 
 namespace OnionSeed.Helpers.Security
@@ -8,7 +12,8 @@ namespace OnionSeed.Helpers.Security
 	/// can be accessed as safely as possible, as an array of <see cref="byte"/>.
 	/// </summary>
 	/// <remarks>This class is much safer than (and preferred over) <see cref="InsecureString"/>.</remarks>
-	public sealed class InsecureByteArray : InsecureBase<byte[]>
+	[SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "Not a true collection class.")]
+	public sealed class InsecureByteArray : InsecureBase<byte[]>, IEnumerable<byte>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="InsecureByteArray"/> class,
@@ -20,6 +25,14 @@ namespace OnionSeed.Helpers.Security
 			: base(secureString)
 		{
 		}
+
+		/// <inheritdoc/>
+		public IEnumerator<byte> GetEnumerator() => Value == null
+			? Enumerable.Empty<byte>().GetEnumerator()
+			: ((IEnumerable<byte>)Value).GetEnumerator();
+
+		/// <inheritdoc/>
+		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
 		/// <inheritdoc/>
 		protected override byte[] InitializeBuffer(int chars, int bytes) => new byte[bytes];

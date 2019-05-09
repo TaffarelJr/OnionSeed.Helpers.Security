@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Security;
 
 namespace OnionSeed.Helpers.Security
@@ -9,7 +13,8 @@ namespace OnionSeed.Helpers.Security
 	/// </summary>
 	/// <remarks>This class is the least secure way to access the encrypted data in a <see cref="SecureString"/>,
 	/// but may be necessary in some cases. Where possible, use <see cref="InsecureCharArray"/> or <see cref="InsecureByteArray"/> instead.</remarks>
-	public sealed class InsecureString : InsecureBase<string>
+	[SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "Not a true collection class.")]
+	public sealed class InsecureString : InsecureBase<string>, IEnumerable<char>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="InsecureString"/> class,
@@ -21,6 +26,14 @@ namespace OnionSeed.Helpers.Security
 			: base(secureString)
 		{
 		}
+
+		/// <inheritdoc/>
+		public IEnumerator<char> GetEnumerator() => Value == null
+			? Enumerable.Empty<char>().GetEnumerator()
+			: Value.GetEnumerator();
+
+		/// <inheritdoc/>
+		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
 		/// <inheritdoc/>
 		protected override string InitializeBuffer(int chars, int bytes) => new string('\0', chars);

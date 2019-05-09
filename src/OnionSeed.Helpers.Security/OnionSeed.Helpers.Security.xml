@@ -90,6 +90,12 @@
             <param name="secureString">The <see cref="T:System.Security.SecureString"/> to be wrapped.</param>
             <exception cref="T:System.ArgumentNullException"><paramref name="secureString"/> is <c>null</c>.</exception>
         </member>
+        <member name="M:OnionSeed.Helpers.Security.InsecureByteArray.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:OnionSeed.Helpers.Security.InsecureByteArray.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
         <member name="M:OnionSeed.Helpers.Security.InsecureByteArray.InitializeBuffer(System.Int32,System.Int32)">
             <inheritdoc/>
         </member>
@@ -107,6 +113,12 @@
             </summary>
             <param name="secureString">The <see cref="T:System.Security.SecureString"/> to be wrapped.</param>
             <exception cref="T:System.ArgumentNullException"><paramref name="secureString"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:OnionSeed.Helpers.Security.InsecureCharArray.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:OnionSeed.Helpers.Security.InsecureCharArray.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
         </member>
         <member name="M:OnionSeed.Helpers.Security.InsecureCharArray.InitializeBuffer(System.Int32,System.Int32)">
             <inheritdoc/>
@@ -126,6 +138,12 @@
             </summary>
             <param name="secureString">The <see cref="T:System.Security.SecureString"/> to be wrapped.</param>
             <exception cref="T:System.ArgumentNullException"><paramref name="secureString"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:OnionSeed.Helpers.Security.InsecureString.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:OnionSeed.Helpers.Security.InsecureString.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
         </member>
         <member name="M:OnionSeed.Helpers.Security.InsecureString.InitializeBuffer(System.Int32,System.Int32)">
             <inheritdoc/>

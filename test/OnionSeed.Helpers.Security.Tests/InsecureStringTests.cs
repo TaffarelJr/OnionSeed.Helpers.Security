@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Security;
 using FluentAssertions;
 using Xunit;
@@ -31,10 +32,10 @@ namespace OnionSeed.Helpers.Security
 				secureData.MakeReadOnly();
 
 				// Act
-				using (var insecureData = new InsecureString(secureData))
+				using (var subject = new InsecureString(secureData))
 				{
 					// Assert
-					insecureData.Value.Should().Be(data);
+					subject.Value.Should().Be(data);
 				}
 			}
 		}
@@ -50,10 +51,103 @@ namespace OnionSeed.Helpers.Security
 				secureData.MakeReadOnly();
 
 				// Act
-				using (var insecureData = new InsecureString(secureData))
+				using (var subject = new InsecureString(secureData))
 				{
 					// Assert
-					insecureData.Value.Should().Be(data);
+					subject.Value.Should().Be(data);
+				}
+			}
+		}
+
+		[Fact]
+		public void GetEnumerator_ShouldNotEnumerate_WhenSecureStringHasNoData()
+		{
+			// Arrange
+			using (var secureData = new SecureString())
+			{
+				secureData.MakeReadOnly();
+				using (var subject = new InsecureString(secureData))
+				{
+					// Act
+					foreach (var c in subject)
+					{
+						// Assert
+						Assert.True(false, "Should not enumerate.");
+					}
+				}
+			}
+		}
+
+		[Fact]
+		public void GetEnumerator_ShouldEnumerate()
+		{
+			// Arrange
+			const string data = "Data with - oh no - UNICODE!!  이 테스트는 대단합니다";
+			var i = 0;
+
+			using (var secureData = new SecureString())
+			{
+				secureData.Append(data);
+				secureData.MakeReadOnly();
+				using (var subject = new InsecureString(secureData))
+				{
+					// Act
+					foreach (var c in subject)
+					{
+						// Assert
+						c.Should().Be(data[i]);
+						i++;
+					}
+
+					i.Should().Be(data.Length);
+				}
+			}
+		}
+
+		[Fact]
+		public void GetEnumerator_ShouldNotEnumerate_WhenSecureStringHasNoData_AndTypeIsNotSpecified()
+		{
+			// Arrange
+			using (var secureData = new SecureString())
+			{
+				secureData.MakeReadOnly();
+				using (var subject = new InsecureString(secureData))
+				{
+					// Act
+					foreach (var c in (IEnumerable)subject)
+					{
+						// Assert
+						Assert.True(false, "Should not enumerate.");
+					}
+				}
+			}
+		}
+
+		[Fact]
+		public void GetEnumerator_ShouldEnumerate_WhenTypeIsNotSpecified()
+		{
+			// Arrange
+			const string data = "Data with - oh no - UNICODE!!  이 테스트는 대단합니다";
+			var i = 0;
+
+			using (var secureData = new SecureString())
+			{
+				secureData.Append(data);
+				secureData.MakeReadOnly();
+				using (var subject = new InsecureString(secureData))
+				{
+					// Act
+					foreach (var o in (IEnumerable)subject)
+					{
+						// Assert
+						o.Should().BeOfType<char>();
+
+						var c = (char)o;
+						c.Should().Be(data[i]);
+						i++;
+					}
+
+					i.Should().Be(data.Length);
 				}
 			}
 		}
