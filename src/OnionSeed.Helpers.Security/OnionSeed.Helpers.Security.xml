@@ -4,5 +4,17 @@
         <name>OnionSeed.Helpers.Security</name>
     </assembly>
     <members>
+        <member name="T:OnionSeed.Helpers.Security.ActionExtensions">
+            <summary>
+            Contains extension methods for the <see cref="T:System.Action"/> data types.
+            </summary>
+        </member>
+        <member name="M:OnionSeed.Helpers.Security.ActionExtensions.ExecuteInConstrainedRegion(System.Action)">
+            <summary>
+            Executes the given <see cref="T:System.Action"/> in a <a href="https://docs.microsoft.com/en-us/dotnet/framework/performance/constrained-execution-regions">Constrained Execution Region</a> in memory.
+            </summary>
+            <param name="action">The <see cref="T:System.Action"/> to be executed.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="action"/> is <c>null</c>.</exception>
+        </member>
     </members>
 </doc>
