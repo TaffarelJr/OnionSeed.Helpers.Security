@@ -16,5 +16,21 @@
             <param name="action">The <see cref="T:System.Action"/> to be executed.</param>
             <exception cref="T:System.ArgumentNullException"><paramref name="action"/> is <c>null</c>.</exception>
         </member>
+        <member name="T:OnionSeed.Helpers.Security.SecureStringExtensions">
+            <summary>
+            Contains extension methods relating to the <see cref="T:System.Security.SecureString"/> data type.
+            </summary>
+        </member>
+        <member name="M:OnionSeed.Helpers.Security.SecureStringExtensions.Append(System.Security.SecureString,System.Collections.Generic.IEnumerable{System.Char})">
+            <summary>
+            Appends all the specified characters to the end of the given <see cref="T:System.Security.SecureString"/>.
+            </summary>
+            <param name="secureString">The <see cref="T:System.Security.SecureString"/> to which the characters should be appended.</param>
+            <param name="chars">The list of characters to append to the given <see cref="T:System.Security.SecureString"/>.</param>
+            <exception cref="T:System.ObjectDisposedException">This <see cref="T:System.Security.SecureString"/> has already been disposed.</exception>
+            <exception cref="T:System.InvalidOperationException">This <see cref="T:System.Security.SecureString"/> is read-only.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Performing this operation would make the length of this <see cref="T:System.Security.SecureString"/> greater than 65,536 characters.</exception>
+            <exception cref="T:System.Security.Cryptography.CryptographicException">An error occurred while protecting or unprotecting the value of this <see cref="T:System.Security.SecureString"/>.</exception>
+        </member>
     </members>
 </doc>
