@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard1.1</TargetFramework>
+		<Description>Helpers for security-related functionality.</Description>
+		<RepositoryUrl>https://github.com/TaffarelJr/OnionSeed.Helpers.Security.git</RepositoryUrl>
+	</PropertyGroup>
+
+	<Import Project="..\..\build\Production.props" />
+
+</Project>
