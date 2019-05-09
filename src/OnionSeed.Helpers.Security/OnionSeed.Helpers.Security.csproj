@@ -4,6 +4,7 @@
 		<TargetFrameworks>net46;netstandard2.0</TargetFrameworks>
 		<Description>Helpers for security-related functionality.</Description>
 		<RepositoryUrl>https://github.com/TaffarelJr/OnionSeed.Helpers.Security.git</RepositoryUrl>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	</PropertyGroup>
 
 	<Import Project="..\..\build\Production.props" />
