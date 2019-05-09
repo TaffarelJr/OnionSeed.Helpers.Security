@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{253B6D9E-52F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionSeed.Helpers.Security", "src\OnionSeed.Helpers.Security\OnionSeed.Helpers.Security.csproj", "{60100C26-A3EB-40F0-B9F2-EC9F8B72B6B2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5038E750-B34A-432C-8927-24EAB2FC5433}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionSeed.Helpers.Security.Tests", "test\OnionSeed.Helpers.Security.Tests\OnionSeed.Helpers.Security.Tests.csproj", "{5EB11FEC-50E9-4F96-B69F-4CD63EEEF0CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +33,17 @@ Global
 		{60100C26-A3EB-40F0-B9F2-EC9F8B72B6B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60100C26-A3EB-40F0-B9F2-EC9F8B72B6B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60100C26-A3EB-40F0-B9F2-EC9F8B72B6B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB11FEC-50E9-4F96-B69F-4CD63EEEF0CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB11FEC-50E9-4F96-B69F-4CD63EEEF0CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB11FEC-50E9-4F96-B69F-4CD63EEEF0CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB11FEC-50E9-4F96-B69F-4CD63EEEF0CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{60100C26-A3EB-40F0-B9F2-EC9F8B72B6B2} = {253B6D9E-52FD-46FC-BEA9-9AD4DAE65EE2}
+		{5EB11FEC-50E9-4F96-B69F-4CD63EEEF0CC} = {5038E750-B34A-432C-8927-24EAB2FC5433}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A63FA778-1A70-4CBD-A47B-991E011F3C87}
