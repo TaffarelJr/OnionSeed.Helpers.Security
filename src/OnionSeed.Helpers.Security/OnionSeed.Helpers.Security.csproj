@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net452;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net46;netstandard2.0</TargetFrameworks>
 		<Description>Helpers for security-related functionality.</Description>
 		<RepositoryUrl>https://github.com/TaffarelJr/OnionSeed.Helpers.Security.git</RepositoryUrl>
 	</PropertyGroup>
