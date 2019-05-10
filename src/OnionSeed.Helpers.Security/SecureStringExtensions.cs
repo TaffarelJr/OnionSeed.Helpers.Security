@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace OnionSeed.Helpers.Security
 {
@@ -31,6 +32,44 @@ namespace OnionSeed.Helpers.Security
 					secureString.AppendChar(c);
 				}
 			}
+		}
+
+		/// <summary>
+		/// Converts the given list of <see cref="char"/> into a <see cref="SecureString"/>.
+		/// </summary>
+		/// <param name="data">The list of <see cref="char"/> to be secured.</param>
+		/// <returns>A new <see cref="SecureString"/> that contains the data from the given list of <see cref="char"/>.</returns>
+		public static SecureString Secure(this IEnumerable<char> data)
+		{
+			if (data == null)
+				throw new ArgumentNullException(nameof(data));
+
+			var secure = new SecureString();
+			secure.Append(data);
+			secure.MakeReadOnly();
+			return secure;
+		}
+
+		/// <summary>
+		/// Converts the data in the given <see cref="StringBuilder"/> into a <see cref="SecureString"/>.
+		/// </summary>
+		/// <param name="data">The <see cref="StringBuilder"/> that contains the data to be secured.</param>
+		/// <returns>A new <see cref="SecureString"/> that contains the data from the given <see cref="StringBuilder"/>.</returns>
+		/// <remarks>This overload exists because <see cref="StringBuilder"/> does not implement any of the standard collection interfaces,
+		/// and making additional copies of sensitive data (using methods such at <see cref="StringBuilder.ToString()"/>) is discouraged.</remarks>
+		public static SecureString Secure(this StringBuilder data)
+		{
+			if (data == null)
+				throw new ArgumentNullException(nameof(data));
+
+			var secure = new SecureString();
+			for (int i = 0; i < data.Length; i++)
+			{
+				secure.AppendChar(data[i]);
+			}
+
+			secure.MakeReadOnly();
+			return secure;
 		}
 	}
 }

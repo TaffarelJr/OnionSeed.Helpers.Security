@@ -164,5 +164,21 @@
             <exception cref="T:System.ArgumentOutOfRangeException">Performing this operation would make the length of this <see cref="T:System.Security.SecureString"/> greater than 65,536 characters.</exception>
             <exception cref="T:System.Security.Cryptography.CryptographicException">An error occurred while protecting or unprotecting the value of this <see cref="T:System.Security.SecureString"/>.</exception>
         </member>
+        <member name="M:OnionSeed.Helpers.Security.SecureStringExtensions.Secure(System.Collections.Generic.IEnumerable{System.Char})">
+            <summary>
+            Converts the given list of <see cref="T:System.Char"/> into a <see cref="T:System.Security.SecureString"/>.
+            </summary>
+            <param name="data">The list of <see cref="T:System.Char"/> to be secured.</param>
+            <returns>A new <see cref="T:System.Security.SecureString"/> that contains the data from the given list of <see cref="T:System.Char"/>.</returns>
+        </member>
+        <member name="M:OnionSeed.Helpers.Security.SecureStringExtensions.Secure(System.Text.StringBuilder)">
+            <summary>
+            Converts the data in the given <see cref="T:System.Text.StringBuilder"/> into a <see cref="T:System.Security.SecureString"/>.
+            </summary>
+            <param name="data">The <see cref="T:System.Text.StringBuilder"/> that contains the data to be secured.</param>
+            <returns>A new <see cref="T:System.Security.SecureString"/> that contains the data from the given <see cref="T:System.Text.StringBuilder"/>.</returns>
+            <remarks>This overload exists because <see cref="T:System.Text.StringBuilder"/> does not implement any of the standard collection interfaces,
+            and making additional copies of sensitive data (using methods such at <see cref="M:System.Text.StringBuilder.ToString"/>) is discouraged.</remarks>
+        </member>
     </members>
 </doc>
