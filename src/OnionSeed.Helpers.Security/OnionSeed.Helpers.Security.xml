@@ -180,5 +180,26 @@
             <remarks>This overload exists because <see cref="T:System.Text.StringBuilder"/> does not implement any of the standard collection interfaces,
             and making additional copies of sensitive data (using methods such at <see cref="M:System.Text.StringBuilder.ToString"/>) is discouraged.</remarks>
         </member>
+        <member name="M:OnionSeed.Helpers.Security.SecureStringExtensions.ToInsecureString(System.Security.SecureString)">
+            <summary>
+            Provides access to the data in the given <see cref="T:System.Security.SecureString"/> in a secure, disposable context that works like a <see cref="T:System.String"/>.
+            </summary>
+            <param name="secureString">The <see cref="T:System.Security.SecureString"/> whose data is to be accessed.</param>
+            <returns>A new <see cref="T:OnionSeed.Helpers.Security.InsecureString"/> that provides access to the data in the given <see cref="T:System.Security.SecureString"/>.</returns>
+        </member>
+        <member name="M:OnionSeed.Helpers.Security.SecureStringExtensions.ToInsecureCharArray(System.Security.SecureString)">
+            <summary>
+            Provides access to the data in the given <see cref="T:System.Security.SecureString"/> in a secure, disposable context that works like a <see cref="T:System.String"/>.
+            </summary>
+            <param name="secureString">The <see cref="T:System.Security.SecureString"/> whose data is to be accessed.</param>
+            <returns>A new <see cref="T:OnionSeed.Helpers.Security.InsecureCharArray"/> that provides access to the data in the given <see cref="T:System.Security.SecureString"/>.</returns>
+        </member>
+        <member name="M:OnionSeed.Helpers.Security.SecureStringExtensions.ToInsecureByteArray(System.Security.SecureString)">
+            <summary>
+            Provides access to the data in the given <see cref="T:System.Security.SecureString"/> in a secure, disposable context that works like a <see cref="T:System.String"/>.
+            </summary>
+            <param name="secureString">The <see cref="T:System.Security.SecureString"/> whose data is to be accessed.</param>
+            <returns>A new <see cref="T:OnionSeed.Helpers.Security.InsecureByteArray"/> that provides access to the data in the given <see cref="T:System.Security.SecureString"/>.</returns>
+        </member>
     </members>
 </doc>

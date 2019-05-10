@@ -149,5 +149,50 @@ namespace OnionSeed.Helpers.Security
 				result.Length.Should().Be(16);
 			}
 		}
+
+		[Fact]
+		public void ToInsecureString_ShouldReturnNewInsecureString()
+		{
+			// Arrange
+			const string data = "This is a test!";
+			var subject = data.Secure();
+
+			// Act
+			using (var result = subject.ToInsecureString())
+			{
+				// Assert
+				result.Value.Should().Be(data);
+			}
+		}
+
+		[Fact]
+		public void ToInsecureCharArray_ShouldReturnNewInsecureCharArray()
+		{
+			// Arrange
+			const string data = "This is a test!";
+			var subject = data.Secure();
+
+			// Act
+			using (var result = subject.ToInsecureCharArray())
+			{
+				// Assert
+				result.Value.Should().Equal(data.ToCharArray());
+			}
+		}
+
+		[Fact]
+		public void ToInsecureByteArray_ShouldReturnNewInsecureByteArray()
+		{
+			// Arrange
+			const string data = "This is a test!";
+			var subject = data.Secure();
+
+			// Act
+			using (var result = subject.ToInsecureByteArray())
+			{
+				// Assert
+				result.Value.Should().Equal(Encoding.Unicode.GetBytes(data));
+			}
+		}
 	}
 }

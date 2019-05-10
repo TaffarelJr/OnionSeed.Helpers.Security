@@ -71,5 +71,26 @@ namespace OnionSeed.Helpers.Security
 			secure.MakeReadOnly();
 			return secure;
 		}
+
+		/// <summary>
+		/// Provides access to the data in the given <see cref="SecureString"/> in a secure, disposable context that works like a <see cref="string"/>.
+		/// </summary>
+		/// <param name="secureString">The <see cref="SecureString"/> whose data is to be accessed.</param>
+		/// <returns>A new <see cref="InsecureString"/> that provides access to the data in the given <see cref="SecureString"/>.</returns>
+		public static InsecureString ToInsecureString(this SecureString secureString) => new InsecureString(secureString);
+
+		/// <summary>
+		/// Provides access to the data in the given <see cref="SecureString"/> in a secure, disposable context that works like a <see cref="string"/>.
+		/// </summary>
+		/// <param name="secureString">The <see cref="SecureString"/> whose data is to be accessed.</param>
+		/// <returns>A new <see cref="InsecureCharArray"/> that provides access to the data in the given <see cref="SecureString"/>.</returns>
+		public static InsecureCharArray ToInsecureCharArray(this SecureString secureString) => new InsecureCharArray(secureString);
+
+		/// <summary>
+		/// Provides access to the data in the given <see cref="SecureString"/> in a secure, disposable context that works like a <see cref="string"/>.
+		/// </summary>
+		/// <param name="secureString">The <see cref="SecureString"/> whose data is to be accessed.</param>
+		/// <returns>A new <see cref="InsecureByteArray"/> that provides access to the data in the given <see cref="SecureString"/>.</returns>
+		public static InsecureByteArray ToInsecureByteArray(this SecureString secureString) => new InsecureByteArray(secureString);
 	}
 }
