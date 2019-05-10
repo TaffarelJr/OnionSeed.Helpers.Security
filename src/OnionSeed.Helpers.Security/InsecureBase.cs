@@ -1,4 +1,7 @@
 ﻿using System;
+#if !DEBUG
+using System.Diagnostics;
+#endif
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
